@@ -1,0 +1,78 @@
+{% extends "app/base_site.html" %}
+{% block content %}
+
+<div class="right_col" role="main">
+  <div class="">
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <div class="bs-example" data-example-id="simple-jumbotron">
+              <div class="jumbotron">
+                <h1>Corrections des libellés de formation </h1>
+                <p>{{ user.username }}</p>
+
+                <p>Lors du déploiement du SIRH HR4U en 2014 à TOTAL, une reprise de données a été réalisée. Mais malheureusement, celles-ci ne sont pas toujours exploitables en l’état dans le Reporting et en particulier pour le domaine formation.</p>
+                <p>Une fois les règles de gestion appliquées, il nous reste deux types de libellés :</p>
+                <p>
+                  <ul>
+                    <li>Libellé avec code mais sans correspondance.</li>
+                    <li>Libellés sans code.</li>
+                  </ul>
+                </p>
+                <p>
+                  Pour ces libellés restants nous avons choisi une approche Text mining. Celle-ci calculera un degré de similarité entre les libellés (ancien et nouveau libellé). Pour chaque libellée source nous allons proposer 5 (ou plus) libellés dans le catalogue,
+                  l’utilisateur choisirait ainsi le libellé qui correspond le plus. Ce processus serait piloté par l'application courante dévellopée par ACT/ON BI.</p>
+
+                <h2>Comment corriger? </h2>
+                <p>
+                  Le processus de correction est piloter par la page "Explorer les corrections"
+                </p>
+                </br>
+                <img src="/static/images/presentation_1.png" class="img-thumbnail">
+
+                <p>
+                  </br>
+                  Le tableau ci-dessous recence les anciens libellés ainsi que les 10 libellés proposées.
+                  </br>
+                  <img src="/static/images/presentation_2.png" class="img-thumbnail" width="50%" height="50%">
+                </p>
+                <p>
+                  On peut ainsi visualiser toutes les corrections proposées, ainsi que leurs états.</br>
+                  La couleur de la ligne reflète l'état de la correction.
+                  <p>
+                    <ul>
+                      <li>Rouge: Le libellé n'a pas été corrigé</li>
+                      <li>Orange: Aucune proposition ne correspond au libellé d'origine</li>
+                      <li>Vert: Une correction a été effeftuée</li>
+                    </ul>
+                    <p>
+                      Afin d'effectuer une correction l'utilisateur doit cliquer sur le plus puis cliquer sur le bouton "Corriger"
+                    </p>
+                    </br>
+                    <img src="/static/images/presentation_3.png" class="img-thumbnail" width="40%" height="40%">
+                    <p>
+                      Ainsi la page de correction s'ouvre afin d'effectuer les corrections necessaires
+                    </p>
+                    </br>
+                    <img src="/static/images/presentation_4.png" class="img-thumbnail" width="60%" height="60%">
+
+                    <p>
+                      L'utilisateur doit choisir un des libellés proposés, ou le dernier choix "Acune proposition ne convient". L'utilisateur doit mentionner aussi le degré de confiance de sa correction et mettre s'il souhaite un commentaire.
+                    </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ {% endblock content %}
+  {% block javascripts %}
+  {{ block.super}}
+  {% endblock javascripts %}

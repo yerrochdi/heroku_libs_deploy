@@ -1,0 +1,144 @@
+{% extends "app/base_site.html" %} {% block stylesheets %} {{ block.super }}
+<!-- Ion.RangeSlider -->
+<link href="/static/vendors/normalize-css/normalize.css" rel="stylesheet">
+<link href="/static/vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+<link href="/static/vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+<link href="/static/vendors/typeahead/css/autocomplete_catalogue.css" rel="stylesheet">
+
+<!-- Bootstrap Colorpicker -->
+<link href="/static/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+
+<link href="/static/vendors/cropper/dist/cropper.min.css" rel="stylesheet"> {% endblock stylesheets %} {% block content %}
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Correction des libellés</h3>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <br />
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{% url 'app:Choix_Lib' Libelle.id %}" method="post">
+              {% csrf_token %}
+              <h1>{{ Libelle.Lib_origine }}</h1>
+
+              <div class="ln_solid"></div>
+
+              <div class="well" style="max-height: 300px;overflow: auto;">
+                <div class="funkyradio">
+                  <div class="funkyradio-default">
+                    <input type="radio" name="choice" id="Lib1" value="{{ Libelle.Lib_1 }}" />
+                    <label for="Lib1">{{ Libelle.Lib_1 }}</label>
+                  </div>
+                  <div class="funkyradio-primary">
+                    <input type="radio" name="choice" id="Lib2" value="{{ Libelle.Lib_2 }}" checked/>
+                    <label for="Lib2">{{ Libelle.Lib_2 }}</label>
+                  </div>
+                  <div class="funkyradio-success">
+                    <input type="radio" name="choice" id="Lib3" value="{{ Libelle.Lib_3 }}" />
+                    <label for="Lib3">{{ Libelle.Lib_3 }}</label>
+                  </div>
+                  <div class="funkyradio-danger">
+                    <input type="radio" name="choice" id="Lib4" value="{{ Libelle.Lib_4 }}" />
+                    <label for="Lib4">{{ Libelle.Lib_4 }}</label>
+                  </div>
+                  <div class="funkyradio-warning">
+                    <input type="radio" name="choice" id="Lib5" value="{{ Libelle.Lib_5 }}" />
+                    <label for="Lib5">{{ Libelle.Lib_5 }}</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="radio" name="choice" id="Lib6" value="{{ Libelle.Lib_6 }}" />
+                    <label for="Lib6">{{ Libelle.Lib_6 }}</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="radio" name="choice" id="Lib7" value="{{ Libelle.Lib_7 }}" />
+                    <label for="Lib7">{{ Libelle.Lib_7 }}</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="radio" name="choice" id="Lib8" value="{{ Libelle.Lib_8 }}" />
+                    <label for="Lib8">{{ Libelle.Lib_8 }}</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="radio" name="choice" id="Lib9" value="{{ Libelle.Lib_9 }}" />
+                    <label for="Lib9">{{ Libelle.Lib_9 }}</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="radio" name="choice" id="Lib10" value="{{ Libelle.Lib_10 }}" />
+                    <label for="Lib10">{{ Libelle.Lib_10 }}</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="radio" name="choice" id="LibNon" value="Aucun" />
+                    <label for="LibNon">Aucune correspondance</label>
+                  </div>
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="container">
+                <div class="row">
+                  <h2>Degré de confiance</h2>
+                  <div class="ln_solid"></div>
+                  <div class="custom-radios">
+                <div>
+                  <input type="radio" id="color-1" name="color" value="color-1" checked>
+                  <label for="color-1">
+                    <span>
+                    </span>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" id="color-3" name="color" value="color-3">
+                  <label for="color-3">
+                    <span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="container">
+                <div class="row">
+                <h2>Chercher directement le libellé du catalogue:</h2>
+                <div class="ln_solid"></div>
+                  <div id="bloodhound">
+                    <input class="typeahead" type="text" placeholder="States of USA">
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="ln_solid"></div>
+        <h2>Remarques</h2>
+        <div class="ln_solid"></div>
+        <div class="input-group">
+          <input type="text" class="form-control" name="validate-optional" id="validate-optional" placeholder="Optional">
+          <span class="input-group-addon info"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+        <div class="ln_solid"></div>
+        <div class="container">
+          <div class="row">
+            <input type="submit" class="btn btn-block btn-primary btn-success" value="Valider">
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %} {% block javascripts %} {{ block.super}}
+
+<script src="/static/build/js/check_custom.js"></script>
+<script  type="text/javascript" src="/static/vendors/typeahead/js/typeahead.jquery.js"></script>
+<script  type="text/javascript" src="/static/vendors/typeahead/js/bloodhound.js"></script>
+
+<script  type="text/javascript" src="/static/vendors/typeahead/js/catalogue_autocomplete.js"></script>
+
+
+{% endblock javascripts %}

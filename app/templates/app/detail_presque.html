@@ -1,0 +1,95 @@
+{% extends "app/base_site.html" %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Correction des libellés</h3>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Form Design <small>different form elements</small></h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <form action="{% url 'app:Choix_Lib' Libelle.id %}" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Ancien libellé: </span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="form-control col-md-7 col-xs-12">
+                      {{ Libelle.Lib_origine }}
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Libellés proposés:<span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <p style="padding: 5px;">
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_1 }}" required class="flat" >{{ Libelle.Lib_1 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_2 }}" required class="flat" >{{ Libelle.Lib_2 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_3 }}" required class="flat" >{{ Libelle.Lib_3 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_4 }}" required class="flat" >{{ Libelle.Lib_4 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_5 }}" required class="flat" >{{ Libelle.Lib_5 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_6 }}" required class="flat" >{{ Libelle.Lib_6 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_7 }}" required class="flat" >{{ Libelle.Lib_7 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_8 }}" required class="flat" >{{ Libelle.Lib_8 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_9 }}" required class="flat" >{{ Libelle.Lib_9 }}
+                      <br />
+                      <input type="radio" name="choice" value="{{ Libelle.Lib_10 }}" required class="flat" >{{ Libelle.Lib_10 }}
+                      <br />
+                      <input type="radio" name="choice" value="" required class="flat" > Aucuns libellé correspond
+                      <br />
+                    </p>
+                  </div>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <input type="submit" value="Valider" class="btn btn-success">
+                  </div>
+                </div>
+
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super}}
+{% endblock javascripts %}

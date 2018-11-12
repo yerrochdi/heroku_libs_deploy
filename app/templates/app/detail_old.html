@@ -1,0 +1,43 @@
+<h2>Le libellé d'origine: {{ Libelle.Lib_origine }}</h2>
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'app:Choix_Lib' Libelle.id %}" method="post">
+  {% csrf_token %}
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_1 }}">
+  <label>{{ Libelle.Lib_1 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_2 }}">
+  <label>{{ Libelle.Lib_2 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_3 }}">
+  <label>{{ Libelle.Lib_3 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_4 }}">
+  <label>{{ Libelle.Lib_4 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_5 }}">
+  <label>{{ Libelle.Lib_5 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_6 }}">
+  <label>{{ Libelle.Lib_6 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_7 }}">
+  <label>{{ Libelle.Lib_7 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_8 }}">
+  <label>{{ Libelle.Lib_8 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_9 }}">
+  <label>{{ Libelle.Lib_8 }}</label><br>
+
+  <input type="radio" name="choice" value="{{ Libelle.Lib_10 }}">
+  <label>{{ Libelle.Lib_8 }}</label><br>
+
+  <p>
+    {% if Libelle.Lib_Choisi == "" %} Le choix n'est pas fait {% else %} Le libellé choisit est: {{ Libelle.Lib_Choisi }} {% endif %}
+  </p>
+
+  <input type="submit" value="Choix">
+</form>
