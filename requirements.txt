@@ -117,7 +117,7 @@ libarchive-c==2.8
 llvmlite==0.25.0
 lml==0.0.4
 locket==0.2.0
-lxml==4.2.5
+lxml==4.6.2
 Mako==1.0.7
 MarkupSafe==1.0
 matplotlib==3.0.0
